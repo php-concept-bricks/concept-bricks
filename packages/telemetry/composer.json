@@ -1,0 +1,21 @@
+{
+    "name": "php-concept/brick-telemetry",
+    "description": "Concept stack brick: telemetry",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Concept\\Stack\\Bricks\\Telemetry\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "league/container": "^5.1",
+        "php-concept/core-2": "@dev",
+        "php-concept/extension-logger-monolog": "@dev",
+        "php-concept/extension-telemetry": "@dev",
+        "php-concept/stack": "@dev"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

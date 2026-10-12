@@ -1,0 +1,21 @@
+{
+    "name": "php-concept/brick-database-eloquent",
+    "description": "Concept stack brick: database (Eloquent)",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Concept\\Stack\\Bricks\\Database\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "league/container": "^5.1",
+        "monolog/monolog": "^3",
+        "php-concept/extension-data-masker": "@dev",
+        "php-concept/extension-database-eloquent": "@dev",
+        "php-concept/stack": "@dev"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

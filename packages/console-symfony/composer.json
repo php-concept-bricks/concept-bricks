@@ -1,0 +1,20 @@
+{
+    "name": "php-concept/brick-console-symfony",
+    "description": "Concept stack brick: console (Symfony)",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Concept\\Stack\\Bricks\\Console\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "league/container": "^5.1",
+        "php-concept/extension-console-symfony": "@dev",
+        "php-concept/stack": "@dev",
+        "symfony/console": "^7.3"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

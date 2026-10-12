@@ -1,0 +1,22 @@
+{
+    "name": "php-concept/brick-session-symfony",
+    "description": "Concept stack brick: session (Symfony)",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Concept\\Stack\\Bricks\\Session\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "league/container": "^5.1",
+        "php-concept/core-2": "@dev",
+        "php-concept/extension-csrf": "@dev",
+        "php-concept/extension-session-symfony": "@dev",
+        "php-concept/stack": "@dev",
+        "symfony/http-foundation": "^7.2"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

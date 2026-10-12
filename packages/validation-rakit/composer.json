@@ -1,0 +1,24 @@
+{
+    "name": "php-concept/brick-validation-rakit",
+    "description": "Concept stack brick: validation (Rakit)",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Concept\\Stack\\Bricks\\Validation\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "league/container": "^5.1",
+        "monolog/monolog": "^3",
+        "php-concept/core-2": "@dev",
+        "php-concept/extension-casting-valinor": "@dev",
+        "php-concept/extension-data-masker": "@dev",
+        "php-concept/extension-form-request": "@dev",
+        "php-concept/extension-validation-rakit": "@dev",
+        "php-concept/stack": "@dev"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

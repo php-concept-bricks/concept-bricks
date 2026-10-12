@@ -1,0 +1,144 @@
+{
+    "name": "php-concept/bricks",
+    "description": "Concept bricks monorepo (dev root — packages are published via split)",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.4",
+        "php-concept/brick-casting-valinor": "*@dev",
+        "php-concept/brick-components": "*@dev",
+        "php-concept/brick-console-symfony": "*@dev",
+        "php-concept/brick-database-eloquent": "*@dev",
+        "php-concept/brick-data-masker": "*@dev",
+        "php-concept/brick-error-handler-whoops": "*@dev",
+        "php-concept/brick-event": "*@dev",
+        "php-concept/brick-http": "*@dev",
+        "php-concept/brick-logger-monolog": "*@dev",
+        "php-concept/brick-session-symfony": "*@dev",
+        "php-concept/brick-telemetry": "*@dev",
+        "php-concept/brick-validation-rakit": "*@dev",
+        "php-concept/brick-view": "*@dev"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.1"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/*",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../concept-stack",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "php-concept/stack": "1.0.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "../concept-core-2",
+            "options": {
+                "symlink": true,
+                "versions": {
+                    "php-concept/core-2": "1.0.0"
+                }
+            }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-casting-valinor",
+            "options": { "symlink": true, "versions": { "php-concept/extension-casting-valinor": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-components",
+            "options": { "symlink": true, "versions": { "php-concept/extension-components": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-console-symfony",
+            "options": { "symlink": true, "versions": { "php-concept/extension-console-symfony": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-csrf",
+            "options": { "symlink": true, "versions": { "php-concept/extension-csrf": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-database-eloquent",
+            "options": { "symlink": true, "versions": { "php-concept/extension-database-eloquent": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-data-masker",
+            "options": { "symlink": true, "versions": { "php-concept/extension-data-masker": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-error-handler-whoops",
+            "options": { "symlink": true, "versions": { "php-concept/extension-error-handler-whoops": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-event",
+            "options": { "symlink": true, "versions": { "php-concept/extension-event": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-form-request",
+            "options": { "symlink": true, "versions": { "php-concept/extension-form-request": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-http",
+            "options": { "symlink": true, "versions": { "php-concept/extension-http": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-logger-monolog",
+            "options": { "symlink": true, "versions": { "php-concept/extension-logger-monolog": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-session-symfony",
+            "options": { "symlink": true, "versions": { "php-concept/extension-session-symfony": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-telemetry",
+            "options": { "symlink": true, "versions": { "php-concept/extension-telemetry": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-validation-rakit",
+            "options": { "symlink": true, "versions": { "php-concept/extension-validation-rakit": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-view",
+            "options": { "symlink": true, "versions": { "php-concept/extension-view": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-view-plates",
+            "options": { "symlink": true, "versions": { "php-concept/extension-view-plates": "1.0.0" } }
+        },
+        {
+            "type": "path",
+            "url": "../concept-extensions/extension-view-twig",
+            "options": { "symlink": true, "versions": { "php-concept/extension-view-twig": "1.0.0" } }
+        }
+    ],
+    "scripts": {
+        "phpstan": "vendor/bin/phpstan analyse --memory-limit=512M"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

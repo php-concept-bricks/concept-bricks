@@ -1,0 +1,19 @@
+{
+    "name": "php-concept/brick-casting-valinor",
+    "description": "Concept stack brick: casting (Valinor)",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Concept\\Stack\\Bricks\\Casting\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "league/container": "^5.1",
+        "php-concept/extension-casting-valinor": "@dev",
+        "php-concept/stack": "@dev"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

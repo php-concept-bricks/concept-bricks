@@ -1,0 +1,23 @@
+{
+    "name": "php-concept/brick-http",
+    "description": "Concept stack brick: HTTP",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Concept\\Stack\\Bricks\\Http\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "league/container": "^5.1",
+        "php-concept/core-2": "@dev",
+        "php-concept/extension-casting-valinor": "@dev",
+        "php-concept/extension-form-request": "@dev",
+        "php-concept/extension-http": "@dev",
+        "php-concept/stack": "@dev",
+        "psr/http-server-middleware": "^1.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

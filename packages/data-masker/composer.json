@@ -1,0 +1,19 @@
+{
+    "name": "php-concept/brick-data-masker",
+    "description": "Concept stack brick: data masker",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Concept\\Stack\\Bricks\\Masking\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "league/container": "^5.1",
+        "php-concept/extension-data-masker": "@dev",
+        "php-concept/stack": "@dev"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

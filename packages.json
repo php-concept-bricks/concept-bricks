@@ -1,0 +1,19 @@
+{
+    "org": "php-concept-bricks",
+    "monorepo": "concept-bricks",
+    "packages": {
+        "packages/casting-valinor": "brick-casting-valinor",
+        "packages/components": "brick-components",
+        "packages/console-symfony": "brick-console-symfony",
+        "packages/database-eloquent": "brick-database-eloquent",
+        "packages/data-masker": "brick-data-masker",
+        "packages/error-handler-whoops": "brick-error-handler-whoops",
+        "packages/event": "brick-event",
+        "packages/http": "brick-http",
+        "packages/logger-monolog": "brick-logger-monolog",
+        "packages/session-symfony": "brick-session-symfony",
+        "packages/telemetry": "brick-telemetry",
+        "packages/validation-rakit": "brick-validation-rakit",
+        "packages/view": "brick-view"
+    }
+}
