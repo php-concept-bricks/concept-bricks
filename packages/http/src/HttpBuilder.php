@@ -5,8 +5,9 @@ namespace Concept\Stack\Bricks\Http;
 use Closure;
 use Concept\Core\Http\Contracts\ArgumentResolverInterface;
 use Concept\Core\Http\Contracts\RouteInterceptorInterface;
+use Concept\Stack\Bricks\Casting\CastingBrick;
+use Concept\Stack\Bricks\Validation\ValidationBrick;
 use Concept\Stack\Builder\StackBuilder;
-use Concept\Stack\Capability\Capability;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Server\MiddlewareInterface;
 
@@ -44,19 +45,19 @@ final class HttpBuilder
     public function withFormRequests(): self
     {
         $this->options->setFormRequests(true);
-        $this->parent->require(Capability::HTTP, Capability::VALIDATION);
+        $this->parent->require(HttpBrick::NAME, ValidationBrick::NAME);
 
         return $this;
     }
 
     /**
      * Opt-in typed route parameters (casting). Makes HTTP depend on the casting
-     * capability, which must be enabled via ConceptStack::addCasting().
+     * capability, which must be enabled via CastingBrick / addCasting().
      */
     public function withTypedRouteParameters(): self
     {
         $this->options->setTypedRouteParameters(true);
-        $this->parent->require(Capability::HTTP, Capability::CASTING);
+        $this->parent->require(HttpBrick::NAME, CastingBrick::NAME);
 
         return $this;
     }

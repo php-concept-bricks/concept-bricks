@@ -10,8 +10,10 @@ use Concept\Stack\Bricks\ErrorHandling\Reporting\LoggerExceptionReporter;
 use Concept\Stack\Bricks\ErrorHandling\Reporting\PhpErrorLogReporter;
 use Concept\Stack\Bricks\ErrorHandling\Rendering\JsonHttpErrorRenderer;
 use Concept\Stack\Bricks\ErrorHandling\Rendering\ViewHttpErrorRenderer;
+use Concept\Stack\Bricks\Http\HttpBrick;
+use Concept\Stack\Bricks\Logging\LoggingBrick;
+use Concept\Stack\Bricks\View\ViewBrick;
 use Concept\Stack\Builder\StackBuilder;
-use Concept\Stack\Capability\Capability;
 use Concept\Stack\Exceptions\InvalidCapabilityOptionsException;
 use Concept\Extensions\Http\Contracts\ResponseFactoryInterface;
 use Concept\Extensions\Http\Requests\RequestFormat;
@@ -59,7 +61,7 @@ final class ErrorHandlingBuilder
         }
 
         if ($logger) {
-            $this->parent->require(Capability::ERROR_HANDLING, Capability::LOGGING);
+            $this->parent->require(ErrorHandlingBrick::NAME, LoggingBrick::NAME);
         }
 
         $this->options->setReporter(static function(DefinitionContainerInterface $container) use ($logger, $phpErrorLog): ExceptionReporterInterface {
@@ -96,7 +98,7 @@ final class ErrorHandlingBuilder
     public function withViewRenderer(string $fallbackPath = ''): self
     {
         $this->assertRendererUnset();
-        $this->parent->require(Capability::ERROR_HANDLING, Capability::VIEW);
+        $this->parent->require(ErrorHandlingBrick::NAME, ViewBrick::NAME);
         $this->options->setRenderer(static function(DefinitionContainerInterface $container) use ($fallbackPath): HttpErrorRendererInterface {
             return new ViewHttpErrorRenderer(
                 responseFactory: ContainerDependency::get($container, ResponseFactoryInterface::class),
@@ -117,7 +119,7 @@ final class ErrorHandlingBuilder
     public function withJsonRenderer(): self
     {
         $this->assertRendererUnset();
-        $this->parent->require(Capability::ERROR_HANDLING, Capability::HTTP);
+        $this->parent->require(ErrorHandlingBrick::NAME, HttpBrick::NAME);
         $this->options->setRenderer(static function(DefinitionContainerInterface $container): HttpErrorRendererInterface {
             return new JsonHttpErrorRenderer(
                 responseFactory: ContainerDependency::get($container, ResponseFactoryInterface::class),

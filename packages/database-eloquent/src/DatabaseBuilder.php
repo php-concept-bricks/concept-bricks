@@ -3,7 +3,8 @@
 namespace Concept\Stack\Bricks\Database;
 
 use Concept\Stack\Builder\StackBuilder;
-use Concept\Stack\Capability\Capability;
+use Concept\Stack\Bricks\Events\EventBrick;
+use Concept\Stack\Bricks\Masking\MaskingBrick;
 
 final class DatabaseBuilder
 {
@@ -69,7 +70,7 @@ final class DatabaseBuilder
     public function withMasking(): self
     {
         $this->options->setQueryLogMasking(true);
-        $this->parent->require(Capability::DATABASE, Capability::MASKING);
+        $this->parent->require(DatabaseBrick::NAME, MaskingBrick::NAME);
 
         return $this;
     }
@@ -80,7 +81,7 @@ final class DatabaseBuilder
     public function withEmitQueryEvents(): self
     {
         $this->options->setEmitQueryEvents(true);
-        $this->parent->require(Capability::DATABASE, Capability::EVENTS);
+        $this->parent->require(DatabaseBrick::NAME, EventBrick::NAME);
 
         return $this;
     }

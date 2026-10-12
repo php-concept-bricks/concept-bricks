@@ -2,7 +2,7 @@
 
 namespace Concept\Stack\Bricks\Telemetry;
 
-use Concept\Stack\Capability\Capability;
+
 use Concept\Stack\Exceptions\InvalidCapabilityOptionsException;
 
 final class TelemetryOptions
@@ -50,7 +50,7 @@ final class TelemetryOptions
         }
 
         if ($this->logs && $this->eventName === '') {
-            throw InvalidCapabilityOptionsException::missingOption(Capability::TELEMETRY, 'setEventName()');
+            throw InvalidCapabilityOptionsException::missingOption(TelemetryBrick::NAME, 'setEventName()');
         }
     }
 }

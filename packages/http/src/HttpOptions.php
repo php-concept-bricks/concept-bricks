@@ -5,7 +5,6 @@ namespace Concept\Stack\Bricks\Http;
 use Closure;
 use Concept\Core\Http\Contracts\ArgumentResolverInterface;
 use Concept\Core\Http\Contracts\RouteInterceptorInterface;
-use Concept\Stack\Capability\Capability;
 use Concept\Stack\Exceptions\InvalidCapabilityOptionsException;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -115,7 +114,7 @@ final class HttpOptions
     public function checkOptions(): void
     {
         if ($this->routes === []) {
-            throw InvalidCapabilityOptionsException::missingOption(Capability::HTTP, 'setRoutes()');
+            throw InvalidCapabilityOptionsException::missingOption(HttpBrick::NAME, 'setRoutes()');
         }
     }
 }

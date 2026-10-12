@@ -2,7 +2,6 @@
 
 namespace Concept\Stack\Bricks\Logging;
 
-use Concept\Stack\Capability\Capability;
 use Concept\Stack\Exceptions\InvalidCapabilityOptionsException;
 use Monolog\Handler\HandlerInterface;
 
@@ -63,7 +62,7 @@ final class LoggingOptions
     public function checkOptions(): void
     {
         if ($this->handlers === []) {
-            throw InvalidCapabilityOptionsException::missingHandlers(Capability::LOGGING);
+            throw InvalidCapabilityOptionsException::missingHandlers(LoggingBrick::NAME);
         }
     }
 }

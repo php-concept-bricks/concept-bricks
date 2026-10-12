@@ -12,6 +12,7 @@
         "php": "^8.4",
         "league/container": "^5.1",
         "monolog/monolog": "^3",
+        "php-concept/brick-data-masker": "@dev",
         "php-concept/extension-data-masker": "@dev",
         "php-concept/extension-logger-monolog": "@dev",
         "php-concept/stack": "@dev"

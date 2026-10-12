@@ -11,6 +11,7 @@
     "require": {
         "php": "^8.4",
         "league/container": "^5.1",
+        "php-concept/brick-logger-monolog": "@dev",
         "php-concept/core-2": "@dev",
         "php-concept/extension-logger-monolog": "@dev",
         "php-concept/extension-telemetry": "@dev",

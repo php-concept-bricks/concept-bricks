@@ -12,7 +12,9 @@ final class LoggingStackProvider extends AbstractServiceProvider implements Boot
 {
     public function __construct(
         private readonly LoggingOptions $options,
-    ) {}
+    ) {
+        $this->options->checkOptions();
+    }
 
     public function provides(string $id): bool
     {

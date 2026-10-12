@@ -2,7 +2,6 @@
 
 namespace Concept\Stack\Bricks\Database;
 
-use Concept\Stack\Capability\Capability;
 use Concept\Stack\Exceptions\InvalidCapabilityOptionsException;
 
 final class DatabaseOptions
@@ -139,7 +138,7 @@ final class DatabaseOptions
     public function checkOptions(): void
     {
         if ($this->connection === []) {
-            throw InvalidCapabilityOptionsException::missingOption(Capability::DATABASE, 'setConnection()');
+            throw InvalidCapabilityOptionsException::missingOption(DatabaseBrick::NAME, 'setConnection()');
         }
     }
 }

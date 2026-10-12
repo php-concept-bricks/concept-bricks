@@ -2,8 +2,8 @@
 
 namespace Concept\Stack\Bricks\Telemetry;
 
+use Concept\Stack\Bricks\Logging\LoggingBrick;
 use Concept\Stack\Builder\StackBuilder;
-use Concept\Stack\Capability\Capability;
 
 final class TelemetryBuilder
 {
@@ -21,14 +21,14 @@ final class TelemetryBuilder
 
     /**
      * Opt-in Monolog → TelemetryCollector bridge via LogHandlerRegistry.
-     * Requires the logging capability via ConceptStack::addLogging().
+     * Requires LoggingBrick.
      */
     public function setLogs(bool $logs = true): self
     {
         $this->options->setLogs($logs);
 
         if ($logs) {
-            $this->parent->require(Capability::TELEMETRY, Capability::LOGGING);
+            $this->parent->require(TelemetryBrick::NAME, LoggingBrick::NAME);
         }
 
         return $this;
@@ -36,7 +36,7 @@ final class TelemetryBuilder
 
     /**
      * Event name used by TelemetryLogHandler when setLogs() is enabled.
-     * Pass an application string — do not import Concept\App constants into stack.
+     * Pass an application string — do not import Concept\App constants into bricks.
      */
     public function setEventName(string $eventName): self
     {

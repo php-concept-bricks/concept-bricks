@@ -19,7 +19,9 @@ final class ViewStackProvider extends AbstractServiceProvider implements Bootabl
 
     public function __construct(
         private readonly ViewOptions $options,
-    ) {}
+    ) {
+        $this->options->checkOptions();
+    }
 
     public function provides(string $id): bool
     {

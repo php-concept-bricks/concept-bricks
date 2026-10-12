@@ -8,7 +8,7 @@ use Concept\Extensions\ErrorHandlerWhoops\Contracts\ExceptionReporterInterface;
 use Concept\Extensions\ErrorHandlerWhoops\Contracts\HttpErrorRendererInterface;
 use Concept\Extensions\ErrorHandlerWhoops\ErrorHandlerWhoopsServiceProvider;
 use Concept\Extensions\Http\Requests\RequestFormat;
-use Concept\Stack\Capability\Capability;
+
 use Concept\Stack\Exceptions\InvalidCapabilityOptionsException;
 use League\Container\DefinitionContainerInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
@@ -20,7 +20,9 @@ final class ErrorHandlingStackProvider extends AbstractServiceProvider implement
 {
     public function __construct(
         private readonly ErrorHandlingOptions $options,
-    ) {}
+    ) {
+        $this->options->checkOptions();
+    }
 
     public function provides(string $id): bool
     {
@@ -55,7 +57,7 @@ final class ErrorHandlingStackProvider extends AbstractServiceProvider implement
         }
 
         throw InvalidCapabilityOptionsException::missingOption(
-            Capability::ERROR_HANDLING,
+            ErrorHandlingBrick::NAME,
             'setLogReporting()/setReporter()',
         );
     }
@@ -73,7 +75,7 @@ final class ErrorHandlingStackProvider extends AbstractServiceProvider implement
         }
 
         throw InvalidCapabilityOptionsException::missingOption(
-            Capability::ERROR_HANDLING,
+            ErrorHandlingBrick::NAME,
             'withViewRenderer()/withJsonRenderer()/setRenderer()',
         );
     }

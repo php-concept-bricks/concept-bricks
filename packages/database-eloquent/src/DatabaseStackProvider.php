@@ -13,7 +13,9 @@ final class DatabaseStackProvider extends AbstractServiceProvider implements Boo
 {
     public function __construct(
         private readonly DatabaseOptions $options,
-    ) {}
+    ) {
+        $this->options->checkOptions();
+    }
 
     public function provides(string $id): bool
     {

@@ -24,7 +24,9 @@ final class HttpStackProvider extends AbstractServiceProvider implements Bootabl
 
     public function __construct(
         private readonly HttpOptions $options,
-    ) {}
+    ) {
+        $this->options->checkOptions();
+    }
 
     public function provides(string $id): bool
     {

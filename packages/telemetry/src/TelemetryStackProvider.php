@@ -14,7 +14,9 @@ final class TelemetryStackProvider extends AbstractServiceProvider implements Bo
 {
     public function __construct(
         private readonly TelemetryOptions $options,
-    ) {}
+    ) {
+        $this->options->checkOptions();
+    }
 
     public function provides(string $id): bool
     {

@@ -2,7 +2,7 @@
 
 namespace Concept\Stack\Bricks\View;
 
-use Concept\Stack\Capability\Capability;
+
 use Concept\Stack\Exceptions\InvalidCapabilityOptionsException;
 
 final class ViewOptions
@@ -154,15 +154,15 @@ final class ViewOptions
     public function checkOptions(): void
     {
         if ($this->engine === null) {
-            throw InvalidCapabilityOptionsException::missingOption(Capability::VIEW, 'withTwig()/withPlates()');
+            throw InvalidCapabilityOptionsException::missingOption(ViewBrick::NAME, 'withTwig()/withPlates()');
         }
 
         if ($this->engine === self::ENGINE_TWIG && $this->twigViewsPath === '') {
-            throw InvalidCapabilityOptionsException::missingOption(Capability::VIEW, 'withTwig()->setViewsPath()');
+            throw InvalidCapabilityOptionsException::missingOption(ViewBrick::NAME, 'withTwig()->setViewsPath()');
         }
 
         if ($this->engine === self::ENGINE_PLATES && $this->platesViewsPath === '') {
-            throw InvalidCapabilityOptionsException::missingOption(Capability::VIEW, 'withPlates()->setViewsPath()');
+            throw InvalidCapabilityOptionsException::missingOption(ViewBrick::NAME, 'withPlates()->setViewsPath()');
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Concept\Stack\Bricks\ErrorHandling;
 use Closure;
 use Concept\Extensions\ErrorHandlerWhoops\Contracts\ExceptionReporterInterface;
 use Concept\Extensions\ErrorHandlerWhoops\Contracts\HttpErrorRendererInterface;
-use Concept\Stack\Capability\Capability;
+
 use Concept\Stack\Exceptions\InvalidCapabilityOptionsException;
 use League\Container\DefinitionContainerInterface;
 use Whoops\Handler\HandlerInterface;
@@ -95,14 +95,14 @@ final class ErrorHandlingOptions
     {
         if ($this->reporter === null) {
             throw InvalidCapabilityOptionsException::missingOption(
-                Capability::ERROR_HANDLING,
+                ErrorHandlingBrick::NAME,
                 'setLogReporting()/setReporter()',
             );
         }
 
         if ($this->renderer === null) {
             throw InvalidCapabilityOptionsException::missingOption(
-                Capability::ERROR_HANDLING,
+                ErrorHandlingBrick::NAME,
                 'withViewRenderer()/withJsonRenderer()/setRenderer()',
             );
         }

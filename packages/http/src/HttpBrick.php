@@ -2,7 +2,6 @@
 
 namespace Concept\Stack\Bricks\Http;
 
-use Concept\Stack\Capability\Capability;
 use Concept\Stack\Contract\BindableBrickInterface;
 use Concept\Stack\Support\BindsToStack;
 use League\Container\ServiceProvider\ServiceProviderInterface;
@@ -11,6 +10,7 @@ use League\Container\ServiceProvider\ServiceProviderInterface;
  * Entry point for the HTTP capability.
  *
  * Builder / Options / StackProvider stay as the three implementation files.
+ * Options are checked inside HttpStackProvider — not exposed to the app.
  *
  *   $stack->add(new HttpBrick())
  *       ->builder()
@@ -21,6 +21,8 @@ final class HttpBrick implements BindableBrickInterface
 {
     use BindsToStack;
 
+    public const string NAME = 'http';
+
     private readonly HttpOptions $options;
 
     public function __construct()
@@ -30,7 +32,7 @@ final class HttpBrick implements BindableBrickInterface
 
     public function name(): string
     {
-        return Capability::HTTP;
+        return self::NAME;
     }
 
     public function requires(): array
@@ -53,10 +55,5 @@ final class HttpBrick implements BindableBrickInterface
     public function providers(): array
     {
         return [new HttpStackProvider($this->options)];
-    }
-
-    public function checkOptions(): void
-    {
-        $this->options->checkOptions();
     }
 }

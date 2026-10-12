@@ -66,21 +66,21 @@ Do not run Composer/PHPStan on the host.
 
 ## Packages
 
-| Path | Composer | Split repo |
-|------|----------|------------|
-| `packages/casting-valinor` | `php-concept/brick-casting-valinor` | `brick-casting-valinor` |
-| `packages/components` | `php-concept/brick-components` | `brick-components` |
-| `packages/console-symfony` | `php-concept/brick-console-symfony` | `brick-console-symfony` |
-| `packages/database-eloquent` | `php-concept/brick-database-eloquent` | `brick-database-eloquent` |
-| `packages/data-masker` | `php-concept/brick-data-masker` | `brick-data-masker` |
-| `packages/error-handler-whoops` | `php-concept/brick-error-handler-whoops` | `brick-error-handler-whoops` |
-| `packages/event` | `php-concept/brick-event` | `brick-event` |
-| `packages/http` | `php-concept/brick-http` | `brick-http` |
-| `packages/logger-monolog` | `php-concept/brick-logger-monolog` | `brick-logger-monolog` |
-| `packages/session-symfony` | `php-concept/brick-session-symfony` | `brick-session-symfony` |
-| `packages/telemetry` | `php-concept/brick-telemetry` | `brick-telemetry` |
-| `packages/validation-rakit` | `php-concept/brick-validation-rakit` | `brick-validation-rakit` |
-| `packages/view` | `php-concept/brick-view` | `brick-view` |
+| Path | Entry | `NAME` | Composer |
+|------|-------|--------|----------|
+| `packages/casting-valinor` | `CastingBrick` | `casting-valinor` | `php-concept/brick-casting-valinor` |
+| `packages/components` | `ComponentsBrick` | `components` | `php-concept/brick-components` |
+| `packages/console-symfony` | `ConsoleBrick` | `console-symfony` | `php-concept/brick-console-symfony` |
+| `packages/database-eloquent` | `DatabaseBrick` | `database-eloquent` | `php-concept/brick-database-eloquent` |
+| `packages/data-masker` | `MaskingBrick` | `data-masker` | `php-concept/brick-data-masker` |
+| `packages/error-handler-whoops` | `ErrorHandlingBrick` | `error-handler-whoops` | `php-concept/brick-error-handler-whoops` |
+| `packages/event` | `EventBrick` | `event` | `php-concept/brick-event` |
+| `packages/http` | `HttpBrick` | `http` | `php-concept/brick-http` |
+| `packages/logger-monolog` | `LoggingBrick` | `logger-monolog` | `php-concept/brick-logger-monolog` |
+| `packages/session-symfony` | `SessionBrick` | `session-symfony` | `php-concept/brick-session-symfony` |
+| `packages/telemetry` | `TelemetryBrick` | `telemetry` | `php-concept/brick-telemetry` |
+| `packages/validation-rakit` | `ValidationBrick` | `validation-rakit` | `php-concept/brick-validation-rakit` |
+| `packages/view` | `ViewBrick` | `view` | `php-concept/brick-view` |
 
 Root `composer.json` name `php-concept/bricks` is **dev-only** (path-requires all packages). It is not the Packagist product.
 
@@ -175,9 +175,14 @@ Create empty split repos (skips existing):
 
 Contracts live in `php-concept/stack`:
 
-- `BrickInterface` — `name()`, `requires()`, `providers()`, `checkOptions()`
+- `BrickInterface` — `name()`, `requires()`, `providers()`
 - `BindableBrickInterface` — + `bind()` for bricks that call `$stack->require()` from `with*()`
 - `BindsToStack` trait
+
+Capability id = package kebab = `*Brick::NAME` (e.g. `ValidationBrick::NAME` → `validation-rakit`).  
+Cross-brick `require()` uses those constants; composer then lists the other `brick-*` package.
+
+Options validation runs inside `*StackProvider`, not on the brick contract.
 
 ```php
 $stack->add(new HttpBrick())

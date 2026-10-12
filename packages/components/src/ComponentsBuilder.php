@@ -3,8 +3,11 @@
 namespace Concept\Stack\Bricks\Components;
 
 use Concept\Extensions\Components\Contracts\ComponentInterface;
+use Concept\Stack\Bricks\Console\ConsoleBrick;
+use Concept\Stack\Bricks\Database\DatabaseBrick;
+use Concept\Stack\Bricks\Http\HttpBrick;
+use Concept\Stack\Bricks\View\ViewBrick;
 use Concept\Stack\Builder\StackBuilder;
-use Concept\Stack\Capability\Capability;
 
 final class ComponentsBuilder
 {
@@ -26,7 +29,7 @@ final class ComponentsBuilder
     public function withDatabase(): self
     {
         $this->options->setDatabase(true);
-        $this->parent->require(Capability::COMPONENTS, Capability::DATABASE);
+        $this->parent->require(ComponentsBrick::NAME, DatabaseBrick::NAME);
 
         return $this;
     }
@@ -34,7 +37,7 @@ final class ComponentsBuilder
     public function withConsole(): self
     {
         $this->options->setConsole(true);
-        $this->parent->require(Capability::COMPONENTS, Capability::CONSOLE);
+        $this->parent->require(ComponentsBrick::NAME, ConsoleBrick::NAME);
 
         return $this;
     }
@@ -42,7 +45,7 @@ final class ComponentsBuilder
     public function withHttp(): self
     {
         $this->options->setHttp(true);
-        $this->parent->require(Capability::COMPONENTS, Capability::HTTP);
+        $this->parent->require(ComponentsBrick::NAME, HttpBrick::NAME);
 
         return $this;
     }
@@ -50,7 +53,7 @@ final class ComponentsBuilder
     public function withView(): self
     {
         $this->options->setView(true);
-        $this->parent->require(Capability::COMPONENTS, Capability::VIEW);
+        $this->parent->require(ComponentsBrick::NAME, ViewBrick::NAME);
 
         return $this;
     }

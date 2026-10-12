@@ -11,6 +11,10 @@
     "require": {
         "php": "^8.4",
         "league/container": "^5.1",
+        "php-concept/brick-console-symfony": "@dev",
+        "php-concept/brick-database-eloquent": "@dev",
+        "php-concept/brick-http": "@dev",
+        "php-concept/brick-view": "@dev",
         "php-concept/core-2": "@dev",
         "php-concept/extension-components": "@dev",
         "php-concept/extension-database-eloquent": "@dev",

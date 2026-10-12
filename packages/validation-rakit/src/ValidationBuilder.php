@@ -3,8 +3,8 @@
 namespace Concept\Stack\Bricks\Validation;
 
 use Concept\Extensions\ValidationRakit\Contracts\RuleInterface;
+use Concept\Stack\Bricks\Masking\MaskingBrick;
 use Concept\Stack\Builder\StackBuilder;
-use Concept\Stack\Capability\Capability;
 
 final class ValidationBuilder
 {
@@ -50,7 +50,7 @@ final class ValidationBuilder
      */
     public function withMasking(): self
     {
-        $this->parent->require(Capability::VALIDATION, Capability::MASKING);
+        $this->parent->require(ValidationBrick::NAME, MaskingBrick::NAME);
 
         return $this;
     }

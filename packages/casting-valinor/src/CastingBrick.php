@@ -2,12 +2,11 @@
 
 namespace Concept\Stack\Bricks\Casting;
 
-use Concept\Stack\Capability\Capability;
 use Concept\Stack\Contract\BrickInterface;
 use League\Container\ServiceProvider\ServiceProviderInterface;
 
 /**
- * Entry point for the casting capability (no stack bind — no with* deps).
+ * Entry point for the casting capability.
  *
  *   $stack->add(new CastingBrick())
  *       ->builder()
@@ -16,6 +15,8 @@ use League\Container\ServiceProvider\ServiceProviderInterface;
  */
 final class CastingBrick implements BrickInterface
 {
+    public const string NAME = 'casting-valinor';
+
     private readonly CastingOptions $options;
 
     public function __construct()
@@ -25,7 +26,7 @@ final class CastingBrick implements BrickInterface
 
     public function name(): string
     {
-        return Capability::CASTING;
+        return self::NAME;
     }
 
     public function requires(): array
@@ -44,10 +45,5 @@ final class CastingBrick implements BrickInterface
     public function providers(): array
     {
         return [new CastingStackProvider($this->options)];
-    }
-
-    public function checkOptions(): void
-    {
-        // CastingOptions has no required fields today.
     }
 }

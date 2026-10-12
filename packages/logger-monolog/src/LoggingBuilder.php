@@ -2,8 +2,8 @@
 
 namespace Concept\Stack\Bricks\Logging;
 
+use Concept\Stack\Bricks\Masking\MaskingBrick;
 use Concept\Stack\Builder\StackBuilder;
-use Concept\Stack\Capability\Capability;
 use Monolog\Handler\HandlerInterface;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
@@ -72,7 +72,7 @@ final class LoggingBuilder
     public function withMasking(): self
     {
         $this->options->setMasking(true);
-        $this->parent->require(Capability::LOGGING, Capability::MASKING);
+        $this->parent->require(LoggingBrick::NAME, MaskingBrick::NAME);
 
         return $this;
     }
