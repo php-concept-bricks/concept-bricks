@@ -16,6 +16,6 @@
         "php-concept/brick-event": "^1.0",
         "php-concept/extension-data-masker": "^1.0",
         "php-concept/extension-database-eloquent": "^1.0",
-        "php-concept/stack": "^1.0"
+        "php-concept/stack": "^2.0"
     }
 }

@@ -20,6 +20,6 @@
         "php-concept/extension-http": "^1.0",
         "php-concept/extension-logger-monolog": "^1.0",
         "php-concept/extension-view": "^1.0",
-        "php-concept/stack": "^1.0"
+        "php-concept/stack": "^2.0"
     }
 }

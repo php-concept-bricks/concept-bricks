@@ -18,6 +18,6 @@
         "php-concept/extension-data-masker": "^1.0",
         "php-concept/extension-form-request": "^1.0",
         "php-concept/extension-validation-rakit": "^1.0",
-        "php-concept/stack": "^1.0"
+        "php-concept/stack": "^2.0"
     }
 }

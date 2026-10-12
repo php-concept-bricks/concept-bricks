@@ -19,7 +19,7 @@
         "php-concept/extension-components": "^1.0",
         "php-concept/extension-database-eloquent": "^1.0",
         "php-concept/extension-view": "^1.0",
-        "php-concept/stack": "^1.0",
-        "symfony/console": "^7.3"
+        "php-concept/stack": "^2.0",
+        "symfony/console": "^7.3|^8.0"
     }
 }

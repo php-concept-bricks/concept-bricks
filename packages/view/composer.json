@@ -17,6 +17,6 @@
         "php-concept/extension-view": "^1.0",
         "php-concept/extension-view-plates": "^1.0",
         "php-concept/extension-view-twig": "^1.0",
-        "php-concept/stack": "^1.0"
+        "php-concept/stack": "^2.0"
     }
 }

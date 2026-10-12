@@ -14,7 +14,7 @@
         "php-concept/core-2": "^1.0",
         "php-concept/extension-csrf": "^1.0",
         "php-concept/extension-session-symfony": "^1.0",
-        "php-concept/stack": "^1.0",
-        "symfony/http-foundation": "^7.2"
+        "php-concept/stack": "^2.0",
+        "symfony/http-foundation": "^7.2|^8.0"
     }
 }

@@ -12,6 +12,6 @@
         "php": "^8.4",
         "league/container": "^5.1",
         "php-concept/extension-casting-valinor": "^1.0",
-        "php-concept/stack": "^1.0"
+        "php-concept/stack": "^2.0"
     }
 }

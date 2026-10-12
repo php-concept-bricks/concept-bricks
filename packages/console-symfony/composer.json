@@ -12,7 +12,7 @@
         "php": "^8.4",
         "league/container": "^5.1",
         "php-concept/extension-console-symfony": "^1.0",
-        "php-concept/stack": "^1.0",
-        "symfony/console": "^7.3"
+        "php-concept/stack": "^2.0",
+        "symfony/console": "^7.3|^8.0"
     }
 }

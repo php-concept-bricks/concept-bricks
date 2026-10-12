@@ -17,7 +17,7 @@
         "php-concept/extension-casting-valinor": "^1.0",
         "php-concept/extension-form-request": "^1.0",
         "php-concept/extension-http": "^1.0",
-        "php-concept/stack": "^1.0",
+        "php-concept/stack": "^2.0",
         "psr/http-server-middleware": "^1.0"
     }
 }
