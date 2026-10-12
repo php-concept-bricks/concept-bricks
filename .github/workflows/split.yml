@@ -27,7 +27,7 @@ jobs:
           curl -sL https://github.com/splitsh/lite/releases/download/v1.0.1/sh-linux-amd64 -o /usr/local/bin/splitsh-lite
           chmod +x /usr/local/bin/splitsh-lite
 
-      - name: Push split repos
+      - name: Push split repos (+ same tag when release)
         env:
           SPLIT_PUSH_TOKEN: ${{ secrets.SPLIT_PUSH_TOKEN }}
         run: |
@@ -36,10 +36,20 @@ jobs:
             exit 1
           fi
 
+          TAG=""
+          if [[ "${GITHUB_REF_TYPE:-}" == "tag" ]]; then
+            TAG="${GITHUB_REF_NAME}"
+            echo "Release tag: $TAG"
+          fi
+
           while IFS=$'\t' read -r prefix repo; do
             echo "Splitting $prefix -> $repo"
             SHA=$(splitsh-lite --prefix="$prefix" -- HEAD)
-            git push "https://x-access-token:${SPLIT_PUSH_TOKEN}@github.com/php-concept-bricks/${repo}.git" "${SHA}:refs/heads/main" --force
+            REMOTE="https://x-access-token:${SPLIT_PUSH_TOKEN}@github.com/php-concept-bricks/${repo}.git"
+            git push "$REMOTE" "${SHA}:refs/heads/main" --force
+            if [[ -n "$TAG" ]]; then
+              git push "$REMOTE" "${SHA}:refs/tags/${TAG}"
+            fi
           done < <(php -r '
             $map = json_decode(file_get_contents("packages.json"), true)["packages"];
             foreach ($map as $path => $repo) {
