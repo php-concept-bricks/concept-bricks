@@ -48,13 +48,32 @@ jobs:
             echo "Release tag: $TAG"
           fi
 
+          # GitHub occasionally returns "fatal error in commit_refs" — retry with backoff.
+          push_with_retry() {
+            local remote="$1" refspec="$2"
+            local attempt=1 max=5 delay=5
+            while true; do
+              if git push "$remote" "$refspec"; then
+                return 0
+              fi
+              if (( attempt >= max )); then
+                echo "Push failed after ${max} attempts: $refspec" >&2
+                return 1
+              fi
+              echo "Push rejected (attempt ${attempt}/${max}), retry in ${delay}s…" >&2
+              sleep "$delay"
+              delay=$((delay * 2))
+              attempt=$((attempt + 1))
+            done
+          }
+
           while IFS=$'\t' read -r prefix repo; do
             echo "Splitting $prefix -> $repo"
             SHA=$(splitsh-lite --prefix="$prefix" -- HEAD)
             REMOTE="https://x-access-token:${SPLIT_PUSH_TOKEN}@github.com/php-concept-bricks/${repo}.git"
-            git push "$REMOTE" "${SHA}:refs/heads/main" --force
+            push_with_retry "$REMOTE" "+${SHA}:refs/heads/main"
             if [[ -n "$TAG" ]]; then
-              git push "$REMOTE" "${SHA}:refs/tags/${TAG}"
+              push_with_retry "$REMOTE" "${SHA}:refs/tags/${TAG}"
             fi
           done < <(php -r '
             $map = json_decode(file_get_contents("packages.json"), true)["packages"];
