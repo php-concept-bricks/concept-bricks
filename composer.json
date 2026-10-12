@@ -5,19 +5,19 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "php-concept/brick-casting-valinor": "*@dev",
-        "php-concept/brick-components": "*@dev",
-        "php-concept/brick-console-symfony": "*@dev",
-        "php-concept/brick-database-eloquent": "*@dev",
-        "php-concept/brick-data-masker": "*@dev",
-        "php-concept/brick-error-handler-whoops": "*@dev",
-        "php-concept/brick-event": "*@dev",
-        "php-concept/brick-http": "*@dev",
-        "php-concept/brick-logger-monolog": "*@dev",
-        "php-concept/brick-session-symfony": "*@dev",
-        "php-concept/brick-telemetry": "*@dev",
-        "php-concept/brick-validation-rakit": "*@dev",
-        "php-concept/brick-view": "*@dev"
+        "php-concept/brick-casting-valinor": "^1.0",
+        "php-concept/brick-components": "^1.0",
+        "php-concept/brick-console-symfony": "^1.0",
+        "php-concept/brick-database-eloquent": "^1.0",
+        "php-concept/brick-data-masker": "^1.0",
+        "php-concept/brick-error-handler-whoops": "^1.0",
+        "php-concept/brick-event": "^1.0",
+        "php-concept/brick-http": "^1.0",
+        "php-concept/brick-logger-monolog": "^1.0",
+        "php-concept/brick-session-symfony": "^1.0",
+        "php-concept/brick-telemetry": "^1.0",
+        "php-concept/brick-validation-rakit": "^1.0",
+        "php-concept/brick-view": "^1.0"
     },
     "require-dev": {
         "phpstan/phpstan": "^2.1"
@@ -27,7 +27,22 @@
             "type": "path",
             "url": "packages/*",
             "options": {
-                "symlink": true
+                "symlink": true,
+                "versions": {
+                    "php-concept/brick-casting-valinor": "1.0.0",
+                    "php-concept/brick-components": "1.0.0",
+                    "php-concept/brick-console-symfony": "1.0.0",
+                    "php-concept/brick-database-eloquent": "1.0.0",
+                    "php-concept/brick-data-masker": "1.0.0",
+                    "php-concept/brick-error-handler-whoops": "1.0.0",
+                    "php-concept/brick-event": "1.0.0",
+                    "php-concept/brick-http": "1.0.0",
+                    "php-concept/brick-logger-monolog": "1.0.0",
+                    "php-concept/brick-session-symfony": "1.0.0",
+                    "php-concept/brick-telemetry": "1.0.0",
+                    "php-concept/brick-validation-rakit": "1.0.0",
+                    "php-concept/brick-view": "1.0.0"
+                }
             }
         },
         {

@@ -11,17 +11,15 @@
     "require": {
         "php": "^8.4",
         "league/container": "^5.1",
-        "php-concept/brick-console-symfony": "@dev",
-        "php-concept/brick-database-eloquent": "@dev",
-        "php-concept/brick-http": "@dev",
-        "php-concept/brick-view": "@dev",
-        "php-concept/core-2": "@dev",
-        "php-concept/extension-components": "@dev",
-        "php-concept/extension-database-eloquent": "@dev",
-        "php-concept/extension-view": "@dev",
-        "php-concept/stack": "@dev",
+        "php-concept/brick-console-symfony": "^1.0",
+        "php-concept/brick-database-eloquent": "^1.0",
+        "php-concept/brick-http": "^1.0",
+        "php-concept/brick-view": "^1.0",
+        "php-concept/core-2": "^1.0",
+        "php-concept/extension-components": "^1.0",
+        "php-concept/extension-database-eloquent": "^1.0",
+        "php-concept/extension-view": "^1.0",
+        "php-concept/stack": "^1.0",
         "symfony/console": "^7.3"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

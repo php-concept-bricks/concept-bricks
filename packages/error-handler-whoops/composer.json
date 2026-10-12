@@ -12,16 +12,14 @@
         "php": "^8.4",
         "league/container": "^5.1",
         "monolog/monolog": "^3",
-        "php-concept/brick-http": "@dev",
-        "php-concept/brick-logger-monolog": "@dev",
-        "php-concept/brick-view": "@dev",
-        "php-concept/core-2": "@dev",
-        "php-concept/extension-error-handler-whoops": "@dev",
-        "php-concept/extension-http": "@dev",
-        "php-concept/extension-logger-monolog": "@dev",
-        "php-concept/extension-view": "@dev",
-        "php-concept/stack": "@dev"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+        "php-concept/brick-http": "^1.0",
+        "php-concept/brick-logger-monolog": "^1.0",
+        "php-concept/brick-view": "^1.0",
+        "php-concept/core-2": "^1.0",
+        "php-concept/extension-error-handler-whoops": "^1.0",
+        "php-concept/extension-http": "^1.0",
+        "php-concept/extension-logger-monolog": "^1.0",
+        "php-concept/extension-view": "^1.0",
+        "php-concept/stack": "^1.0"
+    }
 }

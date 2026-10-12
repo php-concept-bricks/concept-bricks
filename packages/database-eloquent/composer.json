@@ -12,12 +12,10 @@
         "php": "^8.4",
         "league/container": "^5.1",
         "monolog/monolog": "^3",
-        "php-concept/brick-data-masker": "@dev",
-        "php-concept/brick-event": "@dev",
-        "php-concept/extension-data-masker": "@dev",
-        "php-concept/extension-database-eloquent": "@dev",
-        "php-concept/stack": "@dev"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+        "php-concept/brick-data-masker": "^1.0",
+        "php-concept/brick-event": "^1.0",
+        "php-concept/extension-data-masker": "^1.0",
+        "php-concept/extension-database-eloquent": "^1.0",
+        "php-concept/stack": "^1.0"
+    }
 }

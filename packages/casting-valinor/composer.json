@@ -11,9 +11,7 @@
     "require": {
         "php": "^8.4",
         "league/container": "^5.1",
-        "php-concept/extension-casting-valinor": "@dev",
-        "php-concept/stack": "@dev"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+        "php-concept/extension-casting-valinor": "^1.0",
+        "php-concept/stack": "^1.0"
+    }
 }

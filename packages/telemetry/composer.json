@@ -11,12 +11,10 @@
     "require": {
         "php": "^8.4",
         "league/container": "^5.1",
-        "php-concept/brick-logger-monolog": "@dev",
-        "php-concept/core-2": "@dev",
-        "php-concept/extension-logger-monolog": "@dev",
-        "php-concept/extension-telemetry": "@dev",
-        "php-concept/stack": "@dev"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+        "php-concept/brick-logger-monolog": "^1.0",
+        "php-concept/core-2": "^1.0",
+        "php-concept/extension-logger-monolog": "^1.0",
+        "php-concept/extension-telemetry": "^1.0",
+        "php-concept/stack": "^1.0"
+    }
 }

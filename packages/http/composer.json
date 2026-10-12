@@ -11,15 +11,13 @@
     "require": {
         "php": "^8.4",
         "league/container": "^5.1",
-        "php-concept/brick-casting-valinor": "@dev",
-        "php-concept/brick-validation-rakit": "@dev",
-        "php-concept/core-2": "@dev",
-        "php-concept/extension-casting-valinor": "@dev",
-        "php-concept/extension-form-request": "@dev",
-        "php-concept/extension-http": "@dev",
-        "php-concept/stack": "@dev",
+        "php-concept/brick-casting-valinor": "^1.0",
+        "php-concept/brick-validation-rakit": "^1.0",
+        "php-concept/core-2": "^1.0",
+        "php-concept/extension-casting-valinor": "^1.0",
+        "php-concept/extension-form-request": "^1.0",
+        "php-concept/extension-http": "^1.0",
+        "php-concept/stack": "^1.0",
         "psr/http-server-middleware": "^1.0"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
