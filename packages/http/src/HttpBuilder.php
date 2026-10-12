@@ -29,7 +29,7 @@ final class HttpBuilder
     }
 
     /**
-     * @param list<RouteInterceptorInterface|Closure(ContainerInterface): mixed> $interceptors
+     * @param list<class-string<RouteInterceptorInterface>|RouteInterceptorInterface|Closure(ContainerInterface): mixed> $interceptors
      */
     public function setInterceptors(array $interceptors): self
     {
