@@ -11,9 +11,9 @@ permissions:
 
 jobs:
   split:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -33,6 +33,8 @@ jobs:
         run: |
           if [[ -z "${SPLIT_PUSH_TOKEN:-}" ]]; then
             echo "SPLIT_PUSH_TOKEN secret is required for push." >&2
+            echo "Create a PAT with write access to php-concept-bricks/brick-* repos," >&2
+            echo "then: gh secret set SPLIT_PUSH_TOKEN --repo php-concept-bricks/concept-bricks" >&2
             exit 1
           fi
 

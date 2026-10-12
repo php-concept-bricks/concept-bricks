@@ -155,9 +155,23 @@ Consumers:
 Workflow: `.github/workflows/split.yml`
 
 - Triggers on push of tags `v*` (and `workflow_dispatch`)
-- Needs repo secret **`SPLIT_PUSH_TOKEN`** (PAT with write access to all `brick-*` repos)
+- Needs repo secret **`SPLIT_PUSH_TOKEN`**
 
-With the secret set, step 3 can be skipped locally: tagging + pushing `v*` on the monorepo is enough.
+### Create the secret (once)
+
+1. GitHub → Settings → Developer settings → Personal access tokens  
+   Fine-grained PAT (or classic `repo`): **Contents: Read and write** on org `php-concept-bricks` (all `brick-*` repos).
+2. In the monorepo:
+
+```bash
+gh secret set SPLIT_PUSH_TOKEN --repo php-concept-bricks/concept-bricks
+# paste the PAT when prompted
+```
+
+Without this secret the workflow exits with: `SPLIT_PUSH_TOKEN secret is required for push.`  
+(Node/ubuntu notices in the run are warnings only — not the failure.)
+
+With the secret set, local `./scripts/split-packages.sh` can be skipped: tagging + pushing `v*` on the monorepo is enough.
 
 ---
 
