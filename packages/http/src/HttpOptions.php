@@ -112,7 +112,7 @@ final class HttpOptions
         array_push($this->appendedResolvers, ...$resolvers);
     }
 
-    public function assertValid(): void
+    public function checkOptions(): void
     {
         if ($this->routes === []) {
             throw InvalidCapabilityOptionsException::missingOption(Capability::HTTP, 'setRoutes()');

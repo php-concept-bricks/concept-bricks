@@ -60,7 +60,7 @@ final class LoggingOptions
         $this->masking = $masking;
     }
 
-    public function assertValid(): void
+    public function checkOptions(): void
     {
         if ($this->handlers === []) {
             throw InvalidCapabilityOptionsException::missingHandlers(Capability::LOGGING);

@@ -43,7 +43,7 @@ final class TelemetryOptions
         $this->eventName = $eventName;
     }
 
-    public function assertValid(): void
+    public function checkOptions(): void
     {
         if (!$this->enabled) {
             return;

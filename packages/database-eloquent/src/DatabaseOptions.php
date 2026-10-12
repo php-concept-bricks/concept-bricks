@@ -136,7 +136,7 @@ final class DatabaseOptions
         $this->emitQueryEvents = $emitQueryEvents;
     }
 
-    public function assertValid(): void
+    public function checkOptions(): void
     {
         if ($this->connection === []) {
             throw InvalidCapabilityOptionsException::missingOption(Capability::DATABASE, 'setConnection()');

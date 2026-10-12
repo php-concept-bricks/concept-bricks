@@ -91,7 +91,7 @@ final class ErrorHandlingOptions
         $this->debugHttpHandler = $handler;
     }
 
-    public function assertValid(): void
+    public function checkOptions(): void
     {
         if ($this->reporter === null) {
             throw InvalidCapabilityOptionsException::missingOption(

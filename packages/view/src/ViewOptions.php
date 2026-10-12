@@ -151,7 +151,7 @@ final class ViewOptions
         $this->platesDefaultExtension = $platesDefaultExtension;
     }
 
-    public function assertValid(): void
+    public function checkOptions(): void
     {
         if ($this->engine === null) {
             throw InvalidCapabilityOptionsException::missingOption(Capability::VIEW, 'withTwig()/withPlates()');
