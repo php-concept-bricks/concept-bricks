@@ -9,6 +9,7 @@ use Concept\Extensions\ErrorHandlerWhoops\Contracts\HttpErrorRendererInterface;
 use Concept\Stack\Bricks\ErrorHandling\Reporting\LoggerExceptionReporter;
 use Concept\Stack\Bricks\ErrorHandling\Reporting\PhpErrorLogReporter;
 use Concept\Stack\Bricks\ErrorHandling\Rendering\JsonHttpErrorRenderer;
+use Concept\Stack\Bricks\ErrorHandling\Rendering\ViewHttpErrorRenderOptions;
 use Concept\Stack\Bricks\ErrorHandling\Rendering\ViewHttpErrorRenderer;
 use Concept\Stack\Bricks\Http\HttpBrick;
 use Concept\Stack\Bricks\Logging\LoggingBrick;
@@ -92,21 +93,33 @@ final class ErrorHandlingBuilder
 
     /**
      * Render recipe: ViewHttpErrorRenderer (@ns/errors/{code} + PHP fallback; JSON by Accept).
-     * Requires addView(). Optional $fallbackPath — absolute dir with {code}.php; empty skips PHP files.
-     * XOR with withJsonRenderer().
+     * Requires addView(). XOR with withJsonRenderer().
+     *
+     * @param string $fallbackPath Absolute dir with {code}.php; empty skips PHP fallback files.
+     * @param string $defaultNamespace Used when route→view namespace map is empty.
+     * @param string $templateFormat sprintf(namespace, code) → e.g. @frontend/errors/404
      */
-    public function withViewRenderer(string $fallbackPath = ''): self
-    {
+    public function withViewRenderer(
+        string $fallbackPath = '',
+        string $defaultNamespace = 'frontend',
+        string $templateFormat = '@%s/errors/%d',
+    ): self {
+        $renderOptions = new ViewHttpErrorRenderOptions(
+            fallbackPath: $fallbackPath,
+            defaultNamespace: $defaultNamespace,
+            templateFormat: $templateFormat,
+        );
+
         $this->assertRendererUnset();
         $this->parent->require(ErrorHandlingBrick::NAME, ViewBrick::NAME);
-        $this->options->setRenderer(static function(DefinitionContainerInterface $container) use ($fallbackPath): HttpErrorRendererInterface {
+        $this->options->setRenderer(static function(DefinitionContainerInterface $container) use ($renderOptions): HttpErrorRendererInterface {
             return new ViewHttpErrorRenderer(
                 responseFactory: ContainerDependency::get($container, ResponseFactoryInterface::class),
                 viewResponse: ContainerDependency::get($container, ViewResponseFactoryInterface::class),
                 requestFormat: ContainerDependency::get($container, RequestFormat::class),
                 routeNamespaceResolver: ContainerDependency::get($container, ViewRouteNamespaceResolver::class),
                 exceptionReporter: ContainerDependency::get($container, ExceptionReporterInterface::class),
-                fallbackPath: $fallbackPath,
+                options: $renderOptions,
             );
         });
 

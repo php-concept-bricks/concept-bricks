@@ -21,8 +21,6 @@ use Throwable;
  */
 final class ViewHttpErrorRenderer implements HttpErrorRendererInterface
 {
-    private const string DEFAULT_NAMESPACE = 'frontend';
-    private const string TEMPLATE_FORMAT = '@%s/errors/%d';
     private const string FALLBACK_FILE_FORMAT = '%s/%d.php';
     private const string HTML_CRITICAL_ERROR = '<h1>%d %s</h1>';
 
@@ -32,7 +30,7 @@ final class ViewHttpErrorRenderer implements HttpErrorRendererInterface
         private readonly RequestFormat $requestFormat,
         private readonly ViewRouteNamespaceResolver $routeNamespaceResolver,
         private readonly ExceptionReporterInterface $exceptionReporter,
-        private readonly string $fallbackPath = '',
+        private readonly ViewHttpErrorRenderOptions $options = new ViewHttpErrorRenderOptions(),
     ) {}
 
     /**
@@ -52,8 +50,8 @@ final class ViewHttpErrorRenderer implements HttpErrorRendererInterface
             return $this->responseFactory->jsonError($message, $code, $errors);
         }
 
-        $namespace = $this->routeNamespaceResolver->resolve($request) ?? self::DEFAULT_NAMESPACE;
-        $template = sprintf(self::TEMPLATE_FORMAT, $namespace, $code);
+        $namespace = $this->routeNamespaceResolver->resolve($request) ?? $this->options->defaultNamespace;
+        $template = sprintf($this->options->templateFormat, $namespace, $code);
 
         try {
             return $this->viewResponse->create($template, $data, $code);
@@ -87,16 +85,20 @@ final class ViewHttpErrorRenderer implements HttpErrorRendererInterface
 
     private function resolveFallbackFile(int $code): ?string
     {
-        if ($this->fallbackPath === '') {
+        if ($this->options->fallbackPath === '') {
             return null;
         }
 
-        $file = sprintf(self::FALLBACK_FILE_FORMAT, $this->fallbackPath, $code);
+        $file = sprintf(self::FALLBACK_FILE_FORMAT, $this->options->fallbackPath, $code);
         if (is_file($file)) {
             return $file;
         }
 
-        $file = sprintf(self::FALLBACK_FILE_FORMAT, $this->fallbackPath, HttpStatusCode::INTERNAL_SERVER_ERROR);
+        $file = sprintf(
+            self::FALLBACK_FILE_FORMAT,
+            $this->options->fallbackPath,
+            HttpStatusCode::INTERNAL_SERVER_ERROR,
+        );
         if (is_file($file)) {
             return $file;
         }
