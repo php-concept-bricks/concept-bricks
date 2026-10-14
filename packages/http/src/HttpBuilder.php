@@ -29,7 +29,9 @@ final class HttpBuilder
     }
 
     /**
-     * @param list<class-string<RouteInterceptorInterface>|RouteInterceptorInterface|Closure(ContainerInterface): mixed> $interceptors
+     * Pass interceptor instances or factory Closures; class-strings are not resolved.
+     *
+     * @param list<RouteInterceptorInterface|Closure(ContainerInterface): mixed> $interceptors
      */
     public function setInterceptors(array $interceptors): self
     {

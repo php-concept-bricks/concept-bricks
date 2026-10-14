@@ -14,7 +14,7 @@ final class HttpOptions
     /** @var list<string> */
     private array $routes = [];
 
-    /** @var list<class-string<RouteInterceptorInterface>|RouteInterceptorInterface|Closure(ContainerInterface): mixed> */
+    /** @var list<RouteInterceptorInterface|Closure(ContainerInterface): mixed> */
     private array $interceptors = [];
 
     private bool $typedRouteParameters = false;
@@ -44,7 +44,7 @@ final class HttpOptions
     }
 
     /**
-     * @return list<class-string<RouteInterceptorInterface>|RouteInterceptorInterface|Closure(ContainerInterface): mixed>
+     * @return list<RouteInterceptorInterface|Closure(ContainerInterface): mixed>
      */
     public function interceptors(): array
     {
@@ -52,7 +52,7 @@ final class HttpOptions
     }
 
     /**
-     * @param list<class-string<RouteInterceptorInterface>|RouteInterceptorInterface|Closure(ContainerInterface): mixed> $interceptors
+     * @param list<RouteInterceptorInterface|Closure(ContainerInterface): mixed> $interceptors
      */
     public function setInterceptors(array $interceptors): void
     {
