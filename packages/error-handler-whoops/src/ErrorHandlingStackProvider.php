@@ -4,16 +4,15 @@ namespace Concept\Stack\Bricks\ErrorHandling;
 
 use Closure;
 use Concept\Core\Container\ContainerDependency;
+use Concept\Core\Http\Contracts\RequestContextInterface;
 use Concept\Extensions\ErrorHandlerWhoops\Contracts\ExceptionReporterInterface;
 use Concept\Extensions\ErrorHandlerWhoops\Contracts\HttpErrorRendererInterface;
 use Concept\Extensions\ErrorHandlerWhoops\ErrorHandlerWhoopsServiceProvider;
 use Concept\Extensions\Http\Requests\RequestFormat;
-
 use Concept\Stack\Exceptions\InvalidCapabilityOptionsException;
 use League\Container\DefinitionContainerInterface;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\Container\ServiceProvider\BootableServiceProviderInterface;
-use Psr\Http\Message\ServerRequestInterface;
 use Whoops\Handler\HandlerInterface;
 
 final class ErrorHandlingStackProvider extends AbstractServiceProvider implements BootableServiceProviderInterface
@@ -110,13 +109,12 @@ final class ErrorHandlingStackProvider extends AbstractServiceProvider implement
     private function requestExpectsJson(): bool
     {
         $container = $this->getContainer();
+        $requestFormat = ContainerDependency::getOrNull($container, RequestFormat::class);
+        $request = ContainerDependency::getOrNull($container, RequestContextInterface::class)?->current();
 
-        if (!$container->has(ServerRequestInterface::class) || !$container->has(RequestFormat::class)) {
+        if ($requestFormat === null || $request === null) {
             return false;
         }
-
-        $request = ContainerDependency::get($container, ServerRequestInterface::class);
-        $requestFormat = ContainerDependency::get($container, RequestFormat::class);
 
         return $requestFormat->expectsJson($request);
     }

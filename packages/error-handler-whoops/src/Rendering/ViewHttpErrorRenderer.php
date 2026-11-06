@@ -50,7 +50,7 @@ final class ViewHttpErrorRenderer implements HttpErrorRendererInterface
             return $this->responseFactory->jsonError($message, $code, $errors);
         }
 
-        $namespace = $this->routeNamespaceResolver->resolve($request) ?? $this->options->defaultNamespace;
+        $namespace = $this->routeNamespaceResolver->resolve() ?? $this->options->defaultNamespace;
         $template = sprintf($this->options->templateFormat, $namespace, $code);
 
         try {

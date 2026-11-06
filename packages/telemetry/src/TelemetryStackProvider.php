@@ -6,7 +6,7 @@ use Concept\Core\Container\ContainerDependency;
 use Concept\Extensions\LoggerMonolog\LogHandlerRegistry;
 use Concept\Extensions\Telemetry\Handlers\TelemetryLogHandler;
 use Concept\Extensions\Telemetry\TelemetryCollector;
-use Concept\Extensions\Telemetry\TelemetryServiceProvider as TelemetryExtensionServiceProvider;
+use Concept\Extensions\Telemetry\TelemetryServiceProvider;
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\Container\ServiceProvider\BootableServiceProviderInterface;
 
@@ -20,21 +20,21 @@ final class TelemetryStackProvider extends AbstractServiceProvider implements Bo
 
     public function provides(string $id): bool
     {
-        return $id === TelemetryLogHandler::class;
+        return false;
     }
 
     public function register(): void
     {
-        $this->getContainer()->addServiceProvider(new TelemetryExtensionServiceProvider());
     }
 
     public function boot(): void
     {
+        $container = $this->getContainer();
+        $container->addServiceProvider(new TelemetryServiceProvider());
+
         if (!$this->options->enabled()) {
             return;
         }
-
-        $container = $this->getContainer();
 
         if ($this->options->logs()) {
             $eventName = $this->options->eventName();
@@ -51,6 +51,5 @@ final class TelemetryStackProvider extends AbstractServiceProvider implements Bo
                 $registry->add(TelemetryLogHandler::class);
             }
         }
-
     }
 }
