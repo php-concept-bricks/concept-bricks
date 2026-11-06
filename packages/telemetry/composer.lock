@@ -8,20 +8,20 @@
     "packages": [
         {
             "name": "laminas/laminas-diactoros",
-            "version": "3.9.0",
+            "version": "3.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-diactoros.git",
-                "reference": "4ab9fe10869ac0cd46fa78e641b6d0f4389bc6b4"
+                "reference": "5939fbc03e9043e5d27050ed584de263b869c57f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-diactoros/zipball/4ab9fe10869ac0cd46fa78e641b6d0f4389bc6b4",
-                "reference": "4ab9fe10869ac0cd46fa78e641b6d0f4389bc6b4",
+                "url": "https://api.github.com/repos/laminas/laminas-diactoros/zipball/5939fbc03e9043e5d27050ed584de263b869c57f",
+                "reference": "5939fbc03e9043e5d27050ed584de263b869c57f",
                 "shasum": ""
             },
             "require": {
-                "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+                "php": "~8.3.0 || ~8.4.0 || ~8.5.0 || ~8.6.0",
                 "psr/http-factory": "^1.1",
                 "psr/http-message": "^1.1 || ^2.0"
             },
@@ -93,7 +93,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2026-10-08T08:19:47+00:00"
+            "time": "2026-11-04T10:34:30+00:00"
         },
         {
             "name": "laminas/laminas-httphandlerrunner",
@@ -613,16 +613,16 @@
         },
         {
             "name": "php-concept/brick-data-masker",
-            "version": "v1.0.8",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept-bricks/brick-data-masker.git",
-                "reference": "76f0f3fe04c0ddc91a5b1d429a5516bdd60165c0"
+                "reference": "bd675dc2092be97935d83566b3f5be10b504d330"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept-bricks/brick-data-masker/zipball/76f0f3fe04c0ddc91a5b1d429a5516bdd60165c0",
-                "reference": "76f0f3fe04c0ddc91a5b1d429a5516bdd60165c0",
+                "url": "https://api.github.com/repos/php-concept-bricks/brick-data-masker/zipball/bd675dc2092be97935d83566b3f5be10b504d330",
+                "reference": "bd675dc2092be97935d83566b3f5be10b504d330",
                 "shasum": ""
             },
             "require": {
@@ -644,22 +644,22 @@
             "description": "Concept stack brick: data masker",
             "support": {
                 "issues": "https://github.com/php-concept-bricks/brick-data-masker/issues",
-                "source": "https://github.com/php-concept-bricks/brick-data-masker/tree/v1.0.8"
+                "source": "https://github.com/php-concept-bricks/brick-data-masker/tree/v1.0.10"
             },
-            "time": "2026-10-12T13:20:09+00:00"
+            "time": "2026-10-14T13:12:36+00:00"
         },
         {
             "name": "php-concept/brick-logger-monolog",
-            "version": "v1.0.8",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept-bricks/brick-logger-monolog.git",
-                "reference": "cfea9e2368f7f34bb7e88bcb2859b69cef7b78dd"
+                "reference": "9e2dda7c930cd4636377455ca439707a348e00ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept-bricks/brick-logger-monolog/zipball/cfea9e2368f7f34bb7e88bcb2859b69cef7b78dd",
-                "reference": "cfea9e2368f7f34bb7e88bcb2859b69cef7b78dd",
+                "url": "https://api.github.com/repos/php-concept-bricks/brick-logger-monolog/zipball/9e2dda7c930cd4636377455ca439707a348e00ff",
+                "reference": "9e2dda7c930cd4636377455ca439707a348e00ff",
                 "shasum": ""
             },
             "require": {
@@ -684,22 +684,22 @@
             "description": "Concept stack brick: logging (Monolog)",
             "support": {
                 "issues": "https://github.com/php-concept-bricks/brick-logger-monolog/issues",
-                "source": "https://github.com/php-concept-bricks/brick-logger-monolog/tree/v1.0.8"
+                "source": "https://github.com/php-concept-bricks/brick-logger-monolog/tree/v1.0.10"
             },
-            "time": "2026-10-12T13:20:09+00:00"
+            "time": "2026-10-14T13:12:36+00:00"
         },
         {
             "name": "php-concept/core-2",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept/concept-core-2.git",
-                "reference": "34c2edad46a2a95a4d802902cdaba8704d2c22c5"
+                "reference": "8d753ed931d1fdc2a0e332e44a151a2855a67e73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept/concept-core-2/zipball/34c2edad46a2a95a4d802902cdaba8704d2c22c5",
-                "reference": "34c2edad46a2a95a4d802902cdaba8704d2c22c5",
+                "url": "https://api.github.com/repos/php-concept/concept-core-2/zipball/8d753ed931d1fdc2a0e332e44a151a2855a67e73",
+                "reference": "8d753ed931d1fdc2a0e332e44a151a2855a67e73",
                 "shasum": ""
             },
             "require": {
@@ -727,22 +727,22 @@
             "description": "Concept Framework Core Engine",
             "support": {
                 "issues": "https://github.com/php-concept/concept-core-2/issues",
-                "source": "https://github.com/php-concept/concept-core-2/tree/v1.0.5"
+                "source": "https://github.com/php-concept/concept-core-2/tree/v1.0.6"
             },
-            "time": "2026-10-13T08:27:05+00:00"
+            "time": "2026-11-06T09:45:40+00:00"
         },
         {
             "name": "php-concept/extension-data-masker",
-            "version": "v1.1.2",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept-extensions/extension-data-masker.git",
-                "reference": "3b86512e8807f22d4916141c762ce2ecc39c3a28"
+                "reference": "5127f518ada6ca4cad361c37e5662692931978bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept-extensions/extension-data-masker/zipball/3b86512e8807f22d4916141c762ce2ecc39c3a28",
-                "reference": "3b86512e8807f22d4916141c762ce2ecc39c3a28",
+                "url": "https://api.github.com/repos/php-concept-extensions/extension-data-masker/zipball/5127f518ada6ca4cad361c37e5662692931978bd",
+                "reference": "5127f518ada6ca4cad361c37e5662692931978bd",
                 "shasum": ""
             },
             "require": {
@@ -764,22 +764,22 @@
             "description": "Concept DataMasker extension — redact sensitive values in logs and debug output",
             "support": {
                 "issues": "https://github.com/php-concept-extensions/extension-data-masker/issues",
-                "source": "https://github.com/php-concept-extensions/extension-data-masker/tree/v1.1.2"
+                "source": "https://github.com/php-concept-extensions/extension-data-masker/tree/v1.1.4"
             },
-            "time": "2026-10-14T13:08:23+00:00"
+            "time": "2026-11-06T10:28:46+00:00"
         },
         {
             "name": "php-concept/extension-event",
-            "version": "v1.1.2",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept-extensions/extension-event.git",
-                "reference": "7826ef9dfae33cb38b3218b71c2d7e6404959723"
+                "reference": "c15440104e07acc0982e32da503ee75f152bc008"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept-extensions/extension-event/zipball/7826ef9dfae33cb38b3218b71c2d7e6404959723",
-                "reference": "7826ef9dfae33cb38b3218b71c2d7e6404959723",
+                "url": "https://api.github.com/repos/php-concept-extensions/extension-event/zipball/c15440104e07acc0982e32da503ee75f152bc008",
+                "reference": "c15440104e07acc0982e32da503ee75f152bc008",
                 "shasum": ""
             },
             "require": {
@@ -802,22 +802,22 @@
             "description": "Concept Event extension — League Event dispatcher wiring",
             "support": {
                 "issues": "https://github.com/php-concept-extensions/extension-event/issues",
-                "source": "https://github.com/php-concept-extensions/extension-event/tree/v1.1.2"
+                "source": "https://github.com/php-concept-extensions/extension-event/tree/v1.1.4"
             },
-            "time": "2026-10-14T13:08:23+00:00"
+            "time": "2026-11-06T10:28:46+00:00"
         },
         {
             "name": "php-concept/extension-logger-monolog",
-            "version": "v1.1.2",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept-extensions/extension-logger-monolog.git",
-                "reference": "69fd6b598be481e9dfcdfc7b55351642b80d53ca"
+                "reference": "9b71cce5041c9d6de01931fd30ecd4e28fed3140"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept-extensions/extension-logger-monolog/zipball/69fd6b598be481e9dfcdfc7b55351642b80d53ca",
-                "reference": "69fd6b598be481e9dfcdfc7b55351642b80d53ca",
+                "url": "https://api.github.com/repos/php-concept-extensions/extension-logger-monolog/zipball/9b71cce5041c9d6de01931fd30ecd4e28fed3140",
+                "reference": "9b71cce5041c9d6de01931fd30ecd4e28fed3140",
                 "shasum": ""
             },
             "require": {
@@ -843,22 +843,22 @@
             "description": "Concept Logger extension — Monolog with explicit handlers and optional data masking",
             "support": {
                 "issues": "https://github.com/php-concept-extensions/extension-logger-monolog/issues",
-                "source": "https://github.com/php-concept-extensions/extension-logger-monolog/tree/v1.1.2"
+                "source": "https://github.com/php-concept-extensions/extension-logger-monolog/tree/v1.1.4"
             },
-            "time": "2026-10-14T13:08:23+00:00"
+            "time": "2026-11-06T10:28:46+00:00"
         },
         {
             "name": "php-concept/extension-support",
-            "version": "v1.1.2",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept-extensions/extension-support.git",
-                "reference": "5d936c74a6083688f6bf8ba74515fa0447e3e2b6"
+                "reference": "f94a33b29c2c6f6b4d3c42d21761360744d46704"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept-extensions/extension-support/zipball/5d936c74a6083688f6bf8ba74515fa0447e3e2b6",
-                "reference": "5d936c74a6083688f6bf8ba74515fa0447e3e2b6",
+                "url": "https://api.github.com/repos/php-concept-extensions/extension-support/zipball/f94a33b29c2c6f6b4d3c42d21761360744d46704",
+                "reference": "f94a33b29c2c6f6b4d3c42d21761360744d46704",
                 "shasum": ""
             },
             "require": {
@@ -877,22 +877,22 @@
             "description": "Concept Extension Support — dependency-free runtime contract and factory helpers",
             "support": {
                 "issues": "https://github.com/php-concept-extensions/extension-support/issues",
-                "source": "https://github.com/php-concept-extensions/extension-support/tree/v1.1.2"
+                "source": "https://github.com/php-concept-extensions/extension-support/tree/v1.1.4"
             },
-            "time": "2026-10-14T13:08:23+00:00"
+            "time": "2026-11-06T10:28:46+00:00"
         },
         {
             "name": "php-concept/extension-telemetry",
-            "version": "v1.1.2",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept-extensions/extension-telemetry.git",
-                "reference": "5fe2e24e807b1269bc58a8c65ebc12b2adde7fd7"
+                "reference": "eb61155415746957b13620f8225bae938a88b417"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept-extensions/extension-telemetry/zipball/5fe2e24e807b1269bc58a8c65ebc12b2adde7fd7",
-                "reference": "5fe2e24e807b1269bc58a8c65ebc12b2adde7fd7",
+                "url": "https://api.github.com/repos/php-concept-extensions/extension-telemetry/zipball/eb61155415746957b13620f8225bae938a88b417",
+                "reference": "eb61155415746957b13620f8225bae938a88b417",
                 "shasum": ""
             },
             "require": {
@@ -914,22 +914,22 @@
             "description": "Concept Telemetry extension — in-request collector",
             "support": {
                 "issues": "https://github.com/php-concept-extensions/extension-telemetry/issues",
-                "source": "https://github.com/php-concept-extensions/extension-telemetry/tree/v1.1.2"
+                "source": "https://github.com/php-concept-extensions/extension-telemetry/tree/v1.1.4"
             },
-            "time": "2026-10-14T13:08:23+00:00"
+            "time": "2026-11-06T10:28:46+00:00"
         },
         {
             "name": "php-concept/stack",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-concept/concept-stack.git",
-                "reference": "6e0d189a5521755738c241c970699ac48c1dd8fa"
+                "reference": "f97658b170c0ac68bb7d76c4784bb958d8a82b20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-concept/concept-stack/zipball/6e0d189a5521755738c241c970699ac48c1dd8fa",
-                "reference": "6e0d189a5521755738c241c970699ac48c1dd8fa",
+                "url": "https://api.github.com/repos/php-concept/concept-stack/zipball/f97658b170c0ac68bb7d76c4784bb958d8a82b20",
+                "reference": "f97658b170c0ac68bb7d76c4784bb958d8a82b20",
                 "shasum": ""
             },
             "require": {
@@ -954,9 +954,9 @@
             "description": "Concept stack assembler (thin: ConceptStack + brick contracts)",
             "support": {
                 "issues": "https://github.com/php-concept/concept-stack/issues",
-                "source": "https://github.com/php-concept/concept-stack/tree/v2.0.1"
+                "source": "https://github.com/php-concept/concept-stack/tree/v2.0.2"
             },
-            "time": "2026-10-12T13:05:59+00:00"
+            "time": "2026-10-14T13:18:22+00:00"
         },
         {
             "name": "psr/container",
@@ -1387,12 +1387,12 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.4"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }
