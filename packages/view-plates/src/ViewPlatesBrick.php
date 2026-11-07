@@ -9,12 +9,10 @@ use League\Container\ServiceProvider\ServiceProviderInterface;
 /**
  * Plates engine for ViewBrick::withEngine().
  *
- *   $stack->add(new ViewBrick())
- *       ->builder()
- *       ->withEngine(new ViewPlatesBrick())
- *       ->setViewsPath(...);
+ *   $plates = new ViewPlatesBrick();
+ *   $plates->builder()->setViewsPath(...);
  *
- * @implements ViewEngineBrickInterface<ViewPlatesBuilder>
+ *   $stack->add(new ViewBrick())->builder()->withEngine($plates);
  */
 final class ViewPlatesBrick implements ViewEngineBrickInterface
 {

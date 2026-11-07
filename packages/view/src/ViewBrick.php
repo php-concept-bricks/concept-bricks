@@ -9,13 +9,15 @@ use League\Container\ServiceProvider\ServiceProviderInterface;
 
 /**
  * View registry capability (paths / extensions / response factory).
- * Engine is plugged via withEngine() from a separate brick package:
+ * Configure the engine brick first, then attach it via withEngine():
+ *
+ *   $twig = new ViewTwigBrick();
+ *   $twig->builder()->setViewsPath(...);
  *
  *   $stack->add(new ViewBrick())
  *       ->builder()
  *       ->setPaths([...])
- *       ->withEngine(new ViewTwigBrick())
- *       ->setViewsPath(...);
+ *       ->withEngine($twig);
  */
 final class ViewBrick implements BindableBrickInterface
 {

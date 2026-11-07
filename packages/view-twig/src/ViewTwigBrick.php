@@ -9,12 +9,13 @@ use League\Container\ServiceProvider\ServiceProviderInterface;
 /**
  * Twig engine for ViewBrick::withEngine().
  *
- *   $stack->add(new ViewBrick())
- *       ->builder()
- *       ->withEngine(new ViewTwigBrick())
- *       ->setViewsPath(...);
+ *   $twig = new ViewTwigBrick();
+ *   $twig->builder()
+ *       ->setViewsPath(...)
+ *       ->setCacheDir(...)
+ *       ->setDebug($debug);
  *
- * @implements ViewEngineBrickInterface<ViewTwigBuilder>
+ *   $stack->add(new ViewBrick())->builder()->withEngine($twig);
  */
 final class ViewTwigBrick implements ViewEngineBrickInterface
 {

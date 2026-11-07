@@ -5,15 +5,15 @@ namespace Concept\Stack\Bricks\View\Contract;
 use Concept\Stack\Contract\BrickInterface;
 
 /**
- * Engine brick plugged into ViewBrick via withEngine().
- * Concrete builder() return type is engine-specific (Twig / Plates / …).
+ * Engine brick for ViewBuilder::withEngine().
  *
- * @template TBuilder of object
+ * Configure via the concrete brick's builder(), then attach the brick:
+ *
+ *   $twig = new ViewTwigBrick();
+ *   $twig->builder()->setViewsPath(...);
+ *
+ *   $stack->add(new ViewBrick())->builder()->withEngine($twig);
  */
 interface ViewEngineBrickInterface extends BrickInterface
 {
-    /**
-     * @return TBuilder
-     */
-    public function builder(): object;
 }
