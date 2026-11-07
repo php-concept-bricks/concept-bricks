@@ -13,6 +13,8 @@ use League\Container\ServiceProvider\ServiceProviderInterface;
  *       ->builder()
  *       ->withEngine(new ViewPlatesBrick())
  *       ->setViewsPath(...);
+ *
+ * @implements ViewEngineBrickInterface<ViewPlatesBuilder>
  */
 final class ViewPlatesBrick implements ViewEngineBrickInterface
 {

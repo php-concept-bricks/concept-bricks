@@ -13,6 +13,8 @@ use League\Container\ServiceProvider\ServiceProviderInterface;
  *       ->builder()
  *       ->withEngine(new ViewTwigBrick())
  *       ->setViewsPath(...);
+ *
+ * @implements ViewEngineBrickInterface<ViewTwigBuilder>
  */
 final class ViewTwigBrick implements ViewEngineBrickInterface
 {

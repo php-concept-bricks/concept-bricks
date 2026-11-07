@@ -52,6 +52,12 @@ final class ViewBuilder
     /**
      * Attach a view engine brick (Twig, Plates, …). XOR — one engine per stack.
      * Registers the engine on the stack and returns its fluent builder.
+     *
+     * @template TBuilder of object
+     * @param ViewEngineBrickInterface<TBuilder> $engine
+     * @return TBuilder
+     *
+     * @throws InvalidCapabilityOptionsException when an engine is already attached
      */
     public function withEngine(ViewEngineBrickInterface $engine): object
     {
