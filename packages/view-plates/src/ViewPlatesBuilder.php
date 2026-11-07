@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Concept\Stack\Bricks\View;
+namespace Concept\Stack\Bricks\ViewPlates;
 
 final class ViewPlatesBuilder
 {
     public function __construct(
-        private readonly ViewOptions $options,
+        private readonly ViewPlatesOptions $options,
     ) {}
 
     /**
@@ -13,7 +13,7 @@ final class ViewPlatesBuilder
      */
     public function setViewsPath(string $viewsPath): self
     {
-        $this->options->setPlatesViewsPath($viewsPath);
+        $this->options->setViewsPath($viewsPath);
 
         return $this;
     }
@@ -23,7 +23,7 @@ final class ViewPlatesBuilder
      */
     public function setDefaultExtension(string $defaultExtension): self
     {
-        $this->options->setPlatesDefaultExtension($defaultExtension);
+        $this->options->setDefaultExtension($defaultExtension);
 
         return $this;
     }

@@ -2,13 +2,16 @@
 
 namespace Concept\Stack\Bricks\View;
 
+use Concept\Stack\Bricks\View\Contract\ViewEngineBrickInterface;
+use Concept\Stack\Builder\StackBuilder;
 use Concept\Stack\Exceptions\InvalidCapabilityOptionsException;
 
 final class ViewBuilder
 {
-    private const string ERR_ENGINE_XOR = 'Capability "view" accepts only one engine: withTwig() or withPlates().';
+    private const string ERR_ENGINE_XOR = 'Capability "view" accepts only one engine via withEngine().';
 
     public function __construct(
+        private readonly StackBuilder $parent,
         private readonly ViewOptions $options,
     ) {}
 
@@ -47,32 +50,18 @@ final class ViewBuilder
     }
 
     /**
-     * Opt-in Twig engine (ViewInterface). XOR with withPlates().
+     * Attach a view engine brick (Twig, Plates, …). XOR — one engine per stack.
+     * Registers the engine on the stack and returns its fluent builder.
      */
-    public function withTwig(): ViewTwigBuilder
+    public function withEngine(ViewEngineBrickInterface $engine): object
     {
-        $this->assertEngineUnsetOr(ViewOptions::ENGINE_TWIG);
-        $this->options->setEngine(ViewOptions::ENGINE_TWIG);
-
-        return new ViewTwigBuilder($this->options);
-    }
-
-    /**
-     * Opt-in Plates engine (ViewInterface). XOR with withTwig().
-     */
-    public function withPlates(): ViewPlatesBuilder
-    {
-        $this->assertEngineUnsetOr(ViewOptions::ENGINE_PLATES);
-        $this->options->setEngine(ViewOptions::ENGINE_PLATES);
-
-        return new ViewPlatesBuilder($this->options);
-    }
-
-    private function assertEngineUnsetOr(string $engine): void
-    {
-        $current = $this->options->engine();
-        if ($current !== null && $current !== $engine) {
+        if ($this->options->hasEngine()) {
             throw new InvalidCapabilityOptionsException(self::ERR_ENGINE_XOR);
         }
+
+        $this->options->markEngineAttached();
+        $this->parent->add($engine);
+
+        return $engine->builder();
     }
 }

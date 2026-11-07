@@ -1,6 +1,6 @@
 {
     "name": "php-concept/brick-view",
-    "description": "Concept stack brick: view (Twig / Plates)",
+    "description": "Concept stack brick: view registry (engine via brick-view-twig / brick-view-plates)",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -15,8 +15,6 @@
         "php-concept/core-2": "^1.0",
         "php-concept/extension-http": "^1.0",
         "php-concept/extension-view": "^1.0",
-        "php-concept/extension-view-plates": "^1.0",
-        "php-concept/extension-view-twig": "^1.0",
         "php-concept/stack": "^2.0"
     }
 }

@@ -3,20 +3,24 @@
 namespace Concept\Stack\Bricks\View;
 
 use Concept\Stack\Bricks\Http\HttpBrick;
-use Concept\Stack\Contract\BrickInterface;
+use Concept\Stack\Contract\BindableBrickInterface;
+use Concept\Stack\Support\BindsToStack;
 use League\Container\ServiceProvider\ServiceProviderInterface;
 
 /**
- * Entry point for the view capability.
+ * View registry capability (paths / extensions / response factory).
+ * Engine is plugged via withEngine() from a separate brick package:
  *
  *   $stack->add(new ViewBrick())
  *       ->builder()
  *       ->setPaths([...])
- *       ->withTwig()
+ *       ->withEngine(new ViewTwigBrick())
  *       ->setViewsPath(...);
  */
-final class ViewBrick implements BrickInterface
+final class ViewBrick implements BindableBrickInterface
 {
+    use BindsToStack;
+
     public const string NAME = 'view';
 
     private readonly ViewOptions $options;
@@ -38,7 +42,7 @@ final class ViewBrick implements BrickInterface
 
     public function builder(): ViewBuilder
     {
-        return new ViewBuilder($this->options);
+        return new ViewBuilder($this->stack(), $this->options);
     }
 
     /**

@@ -14,6 +14,8 @@
         "packages/session-symfony": "brick-session-symfony",
         "packages/telemetry": "brick-telemetry",
         "packages/validation-rakit": "brick-validation-rakit",
-        "packages/view": "brick-view"
+        "packages/view": "brick-view",
+        "packages/view-plates": "brick-view-plates",
+        "packages/view-twig": "brick-view-twig"
     }
 }

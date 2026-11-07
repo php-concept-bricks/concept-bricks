@@ -13,7 +13,6 @@ use Concept\Stack\Bricks\ErrorHandling\Rendering\ViewHttpErrorRenderOptions;
 use Concept\Stack\Bricks\ErrorHandling\Rendering\ViewHttpErrorRenderer;
 use Concept\Stack\Bricks\Http\HttpBrick;
 use Concept\Stack\Bricks\Logging\LoggingBrick;
-use Concept\Stack\Bricks\View\ViewBrick;
 use Concept\Stack\Builder\StackBuilder;
 use Concept\Stack\Exceptions\InvalidCapabilityOptionsException;
 use Concept\Extensions\Http\Contracts\ResponseFactoryInterface;
@@ -111,7 +110,8 @@ final class ErrorHandlingBuilder
         );
 
         $this->assertRendererUnset();
-        $this->parent->require(ErrorHandlingBrick::NAME, ViewBrick::NAME);
+        // Capability name of php-concept/brick-view (optional composer dep — required at runtime for this recipe).
+        $this->parent->require(ErrorHandlingBrick::NAME, 'view');
         $this->options->setRenderer(static function(DefinitionContainerInterface $container) use ($renderOptions): HttpErrorRendererInterface {
             return new ViewHttpErrorRenderer(
                 responseFactory: ContainerDependency::get($container, ResponseFactoryInterface::class),

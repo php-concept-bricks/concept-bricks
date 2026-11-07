@@ -1,0 +1,18 @@
+{
+    "name": "php-concept/brick-view-plates",
+    "description": "Concept stack brick: Plates view engine",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Concept\\Stack\\Bricks\\ViewPlates\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.4",
+        "league/container": "^5.1",
+        "php-concept/brick-view": "^1.0",
+        "php-concept/extension-view-plates": "^1.0",
+        "php-concept/stack": "^2.0"
+    }
+}

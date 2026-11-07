@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Concept\Stack\Bricks\View;
+namespace Concept\Stack\Bricks\ViewTwig;
 
 final class ViewTwigBuilder
 {
     public function __construct(
-        private readonly ViewOptions $options,
+        private readonly ViewTwigOptions $options,
     ) {}
 
     /**
@@ -13,7 +13,7 @@ final class ViewTwigBuilder
      */
     public function setViewsPath(string $viewsPath): self
     {
-        $this->options->setTwigViewsPath($viewsPath);
+        $this->options->setViewsPath($viewsPath);
 
         return $this;
     }
@@ -23,14 +23,14 @@ final class ViewTwigBuilder
      */
     public function setCacheDir(string $cacheDir): self
     {
-        $this->options->setTwigCacheDir($cacheDir);
+        $this->options->setCacheDir($cacheDir);
 
         return $this;
     }
 
     public function setDebug(bool $debug = true): self
     {
-        $this->options->setTwigDebug($debug);
+        $this->options->setDebug($debug);
 
         return $this;
     }
@@ -40,7 +40,7 @@ final class ViewTwigBuilder
      */
     public function setDefaultExtension(string $defaultExtension): self
     {
-        $this->options->setTwigDefaultExtension($defaultExtension);
+        $this->options->setDefaultExtension($defaultExtension);
 
         return $this;
     }
