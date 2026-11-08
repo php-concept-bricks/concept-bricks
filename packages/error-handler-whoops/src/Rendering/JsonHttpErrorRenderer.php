@@ -28,10 +28,13 @@ final class JsonHttpErrorRenderer implements HttpErrorRendererInterface
         array $data = [],
         array $errors = [],
     ): ResponseInterface {
-        return $this->responseFactory->jsonError(
-            $message ?? HttpStatusCode::getReasonPhrase($code),
+        return $this->responseFactory->json(
+            JsonErrorPayload::build(
+                $code,
+                $message ?? HttpStatusCode::getReasonPhrase($code),
+                $errors,
+            ),
             $code,
-            $errors,
         );
     }
 }

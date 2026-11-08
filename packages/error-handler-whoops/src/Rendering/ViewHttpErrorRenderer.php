@@ -47,7 +47,10 @@ final class ViewHttpErrorRenderer implements HttpErrorRendererInterface
         $message ??= HttpStatusCode::getReasonPhrase($code);
 
         if ($this->requestFormat->expectsJson($request)) {
-            return $this->responseFactory->jsonError($message, $code, $errors);
+            return $this->responseFactory->json(
+                JsonErrorPayload::build($code, $message, $errors),
+                $code,
+            );
         }
 
         $namespace = $this->routeNamespaceResolver->resolve() ?? $this->options->defaultNamespace;
