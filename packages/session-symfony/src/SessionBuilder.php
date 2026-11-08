@@ -35,7 +35,7 @@ final class SessionBuilder
     }
 
     /**
-     * Opt-in CSRF token manager (CsrfServiceProvider). Middleware stays in routes.
+     * Opt-in CSRF token manager (CsrfServiceProvider). Verify middleware stays in routes; handle is app-owned.
      */
     public function withCsrf(): self
     {
