@@ -11,15 +11,17 @@
     "require": {
         "php": "^8.4",
         "league/container": "^5.1",
-        "php-concept/brick-console-symfony": "^1.0",
-        "php-concept/brick-database-eloquent": "^1.0",
-        "php-concept/brick-http": "^1.0",
-        "php-concept/brick-view": "^1.0",
         "php-concept/core-2": "^1.0",
         "php-concept/extension-components": "^1.0",
-        "php-concept/extension-database-eloquent": "^1.0",
-        "php-concept/extension-view": "^1.0",
         "php-concept/stack": "^2.0",
         "symfony/console": "^7.3|^8.0"
+    },
+    "suggest": {
+        "php-concept/brick-console-symfony": "Required when using ComponentsBuilder::withConsole()",
+        "php-concept/brick-database-eloquent": "Required when using ComponentsBuilder::withDatabase()",
+        "php-concept/brick-http": "Required when using ComponentsBuilder::withHttp()",
+        "php-concept/brick-view": "Required when using ComponentsBuilder::withView()",
+        "php-concept/extension-database-eloquent": "Required when using ComponentsBuilder::withDatabase()",
+        "php-concept/extension-view": "Required when using ComponentsBuilder::withView()"
     }
 }
