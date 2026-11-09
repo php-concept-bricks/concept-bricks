@@ -14,7 +14,7 @@ final class HttpOptions
     /** @var list<string> */
     private array $routes = [];
 
-    /** @var list<RouteInterceptorInterface|Closure(ContainerInterface): mixed> */
+    /** @var list<class-string<RouteInterceptorInterface>|RouteInterceptorInterface|Closure(ContainerInterface): mixed> */
     private array $interceptors = [];
 
     private bool $typedRouteParameters = false;
@@ -24,7 +24,7 @@ final class HttpOptions
     /** @var MiddlewareInterface|Closure(ContainerInterface): mixed|null */
     private MiddlewareInterface|Closure|null $notFoundMiddleware = null;
 
-    /** @var list<ArgumentResolverInterface|Closure(ContainerInterface): mixed> */
+    /** @var list<class-string<ArgumentResolverInterface>|ArgumentResolverInterface|Closure(ContainerInterface): mixed> */
     private array $appendedResolvers = [];
 
     /**
@@ -44,7 +44,7 @@ final class HttpOptions
     }
 
     /**
-     * @return list<RouteInterceptorInterface|Closure(ContainerInterface): mixed>
+     * @return list<class-string<RouteInterceptorInterface>|RouteInterceptorInterface|Closure(ContainerInterface): mixed>
      */
     public function interceptors(): array
     {
@@ -52,7 +52,7 @@ final class HttpOptions
     }
 
     /**
-     * @param list<RouteInterceptorInterface|Closure(ContainerInterface): mixed> $interceptors
+     * @param list<class-string<RouteInterceptorInterface>|RouteInterceptorInterface|Closure(ContainerInterface): mixed> $interceptors
      */
     public function setInterceptors(array $interceptors): void
     {
@@ -96,7 +96,7 @@ final class HttpOptions
     }
 
     /**
-     * @return list<ArgumentResolverInterface|Closure(ContainerInterface): mixed>
+     * @return list<class-string<ArgumentResolverInterface>|ArgumentResolverInterface|Closure(ContainerInterface): mixed>
      */
     public function appendedResolvers(): array
     {
@@ -104,7 +104,7 @@ final class HttpOptions
     }
 
     /**
-     * @param list<ArgumentResolverInterface|Closure(ContainerInterface): mixed> $resolvers
+     * @param list<class-string<ArgumentResolverInterface>|ArgumentResolverInterface|Closure(ContainerInterface): mixed> $resolvers
      */
     public function appendResolvers(array $resolvers): void
     {

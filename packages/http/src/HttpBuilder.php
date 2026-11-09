@@ -29,9 +29,10 @@ final class HttpBuilder
     }
 
     /**
-     * Pass interceptor instances or factory Closures; class-strings are not resolved.
+     * Pass class-strings, instances, or factory Closures.
+     * Class-strings are resolved from the container in HttpStackProvider.
      *
-     * @param list<RouteInterceptorInterface|Closure(ContainerInterface): mixed> $interceptors
+     * @param list<class-string<RouteInterceptorInterface>|RouteInterceptorInterface|Closure(ContainerInterface): mixed> $interceptors
      */
     public function setInterceptors(array $interceptors): self
     {
@@ -83,9 +84,10 @@ final class HttpBuilder
      * Appends custom argument resolvers after the built-in chain
      * (FormRequest, ServerRequest, TypedRoute, RouteParameter).
      *
-     * Pass resolver instances or factory Closures; class-strings are not resolved.
+     * Pass class-strings, instances, or factory Closures.
+     * Class-strings are resolved from the container in HttpStackProvider.
      *
-     * @param list<ArgumentResolverInterface|Closure(ContainerInterface): mixed> $resolvers
+     * @param list<class-string<ArgumentResolverInterface>|ArgumentResolverInterface|Closure(ContainerInterface): mixed> $resolvers
      */
     public function appendResolvers(array $resolvers): self
     {
