@@ -2,6 +2,8 @@
 
 namespace Concept\Stack\Bricks\Console;
 
+use Closure;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
 
 final class ConsoleOptions
@@ -12,6 +14,11 @@ final class ConsoleOptions
 
     /** @var list<class-string<Command>> */
     private array $commands = [];
+
+    private bool $appLogging = false;
+
+    /** @var Closure(): ?LoggerInterface|null */
+    private ?Closure $loggerFactory = null;
 
     public function appName(): string
     {
@@ -47,5 +54,36 @@ final class ConsoleOptions
     public function setCommands(array $commands): void
     {
         $this->commands = $commands;
+    }
+
+    public function appLogging(): bool
+    {
+        return $this->appLogging;
+    }
+
+    public function setAppLogging(bool $appLogging): void
+    {
+        $this->appLogging = $appLogging;
+    }
+
+    /**
+     * @return Closure(): ?LoggerInterface|null
+     */
+    public function loggerFactory(): ?Closure
+    {
+        return $this->loggerFactory;
+    }
+
+    /**
+     * @param Closure(): ?LoggerInterface $loggerFactory
+     */
+    public function setLoggerFactory(Closure $loggerFactory): void
+    {
+        $this->loggerFactory = $loggerFactory;
+    }
+
+    public function hasLoggerWiring(): bool
+    {
+        return $this->appLogging || $this->loggerFactory !== null;
     }
 }

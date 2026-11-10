@@ -2,7 +2,8 @@
 
 namespace Concept\Stack\Bricks\Console;
 
-use Concept\Stack\Contract\BrickInterface;
+use Concept\Stack\Contract\BindableBrickInterface;
+use Concept\Stack\Support\BindsToStack;
 use League\Container\ServiceProvider\ServiceProviderInterface;
 
 /**
@@ -11,10 +12,13 @@ use League\Container\ServiceProvider\ServiceProviderInterface;
  *   $stack->add(new ConsoleBrick())
  *       ->builder()
  *       ->setName(...)
- *       ->setCommands([...]);
+ *       ->setCommands([...])
+ *       ->withLogging();
  */
-final class ConsoleBrick implements BrickInterface
+final class ConsoleBrick implements BindableBrickInterface
 {
+    use BindsToStack;
+
     public const string NAME = 'console-symfony';
 
     private readonly ConsoleOptions $options;
@@ -36,7 +40,7 @@ final class ConsoleBrick implements BrickInterface
 
     public function builder(): ConsoleBuilder
     {
-        return new ConsoleBuilder($this->options);
+        return new ConsoleBuilder($this->stack(), $this->options);
     }
 
     /**
